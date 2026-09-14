@@ -31,7 +31,10 @@ object ReferenceData {
     )
 
     private fun s(title: String, text: String) = ArticleSection(title, text)
-    private fun a(id: String, category: String, title: String, summary: String, diagram: String? = null, vararg sections: ArticleSection) =
+    private fun a(id: String, category: String, title: String, summary: String, vararg sections: ArticleSection) =
+        ReferenceArticle(id, category, title, summary, sections.toList())
+
+    private fun a(id: String, category: String, title: String, summary: String, diagram: String, vararg sections: ArticleSection) =
         ReferenceArticle(id, category, title, summary, sections.toList(), diagram)
 
     val articles = listOf(
